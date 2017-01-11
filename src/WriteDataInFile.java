@@ -43,7 +43,7 @@ public class WriteDataInFile {
 			buffWriter.write(writeToFile);
 			buffWriter.newLine();
 
-			System.out.println("File exported.");
+			// System.out.println("File exported.");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -66,7 +66,8 @@ public class WriteDataInFile {
 				buffWriter.write(writeToFile);
 				buffWriter.newLine();
 			}
-			System.out.println("\n\t\tThe events are exported succesfully!\n");
+			// System.out.println("\n\t\tThe events are exported
+			// succesfully!\n");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -102,7 +103,8 @@ public class WriteDataInFile {
 					buffWriter.newLine();
 				}
 			}
-			System.out.println("\n\t\tThe events are exported succesfully!\n");
+			// System.out.println("\n\t\tThe events are exported
+			// succesfully!\n");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {

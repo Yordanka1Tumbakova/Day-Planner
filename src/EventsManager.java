@@ -203,7 +203,7 @@ public class EventsManager {
 		String date = "";
 		boolean flagMonthYear = false;
 		while (!flagMonthYear) {
-			System.out.print("\t\tEnter date in format MM/YEAR :");
+			System.out.print("\t\tEnter the date in format MM/YEAR :");
 			date = scan.nextLine();
 			if (DateValidator.IsMonthAndYearValid(date))
 				flagMonthYear = true;
@@ -211,6 +211,7 @@ public class EventsManager {
 		String str[] = date.split("/");
 		monthName = InputValidator.reverseMonthChecker(Integer.parseInt(str[0]) - 1);
 		year = Integer.parseInt(str[1]);
+		System.out.println();
 		tableMaker();
 		for (Event e : events) {
 
@@ -234,6 +235,7 @@ public class EventsManager {
 		int i = 1;
 		String currentMonth = Calendar.getInstance().getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault());
 		int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+		System.out.println();
 		tableMaker();
 		for (Event e : events) {
 
@@ -254,11 +256,13 @@ public class EventsManager {
 	public static void printingByDay() {
 		int flag = 0;
 		int i = 1;
+		System.out.println();
 		String date = setDate();
 		String str[] = date.split("/");
 		int day = Integer.parseInt(str[0]);
 		String monthName = InputValidator.reverseMonthChecker(Integer.parseInt(str[1]) - 1);
 		int year = Integer.parseInt(str[2]);
+		System.out.println("\n");
 		tableMaker();
 		for (Event e : events) {
 
@@ -317,7 +321,7 @@ public class EventsManager {
 		while (!flag) {
 			do {
 				System.out
-						.print("\t\t\tEdit events by:\n\t\t1.Entering day, month and year\n\t\t2.Entering the event's ID\n\t\t3.Go back to the main menu"
+						.print("\t\t\tEdit events by:\n\t\t1.Entering the start day, month and year\n\t\t2.Entering the event's ID\n\t\t3.Go back to the main menu"
 								+ "\n\t\tPlease, enter the number of the option (1 - 3) you want to use:");
 
 				optionChoice = Integer.parseInt(scan.nextLine());
@@ -508,6 +512,7 @@ public class EventsManager {
 			System.out.println();
 			for (Event e : events) {
 				if (e.getStartDay() == day && e.getStartMonthName().equals(monthName) && e.getStartYear() == year) {
+					tableMaker();
 					System.out.printf("\t\t%3d | ", count);
 					System.out.print(e.toString());
 					flag = true;
@@ -549,7 +554,7 @@ public class EventsManager {
 			temp.add(events.poll());
 			if (count == eventToChange) {
 				temp.pop();
-				System.out.print("\t\t\tEnter the changed event:");
+				System.out.print("\n\t\t\tEnter the changed event:");
 				EventsManager.addChangedEvent(DayPlannerStarter.chooseOption());
 
 				System.out.println();
@@ -591,28 +596,11 @@ public class EventsManager {
 
 	public static void saveEventInFile(Event e) {
 		WriteDataInFile.appendEventInFile(e);
-		// saveInFileChoice(e);
 	}
 
 	public static void saveEventsInFile() {
 		WriteDataInFile.saveInFile(events);
 	}
-
-	/*
-	 * / * public static int saveChanges() { char answer; int flag = 0; while
-	 * (flag == 0) { do { System.out.print(
-	 * "\n\t\tDo you want to save the changed events in ? " +
-	 * "Enter \'y\' for YES or \'n\' for NO:"); answer =
-	 * scan.nextLine().charAt(0); if (answer != 'y' && answer != 'n' && answer
-	 * != 'Y' && answer != 'N') {
-	 * System.out.println("\t\tInvalid input! Please, enter your choice again!"
-	 * ); flag = 0; } else { if (answer == 'Y' || answer == 'y') { flag = 1; }
-	 * else if (answer == 'N' || answer == 'n') { flag = 2; } } } while (answer
-	 * != 'y' && answer != 'n' && answer != 'Y' && answer != 'N'); } return
-	 * flag;
-	 * 
-	 * }
-	 */
 
 	public static int tryAgainYesOrNo() {
 		char answer;
@@ -718,6 +706,7 @@ public class EventsManager {
 						&& e.getStartHour() == hour && e.getStartMinutes() == minutes) {
 
 					System.out.println();
+					tableMaker();
 					System.out.printf("\t\t%3d | ", count);
 					System.out.print(e.toString());
 					elementToEdit = count;

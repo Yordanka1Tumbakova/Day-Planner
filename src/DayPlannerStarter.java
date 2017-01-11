@@ -43,14 +43,12 @@ public class DayPlannerStarter {
 				break;
 
 			} else {
+				EventsManager.checkingAndPrintingByType();
 				EventsManager.editEventOptions();
 				EventsManager.checkingAndPrintingByType();
-				/* answer = */
 				EventsManager.saveEventsInFile();
-				/*
-				 * saveChanges(); if (answer == 1) {
-				 * EventsManager.saveEventsInFile(); break; } else break;
-				 */
+				break;
+
 			}
 		}
 		case 3: {
@@ -61,15 +59,11 @@ public class DayPlannerStarter {
 				break;
 
 			} else {
-				EventsManager.deleteEventOptions();
-				System.out.println("\t\tThe remaining events are:\n");
 				EventsManager.checkingAndPrintingByType();
-				/* answer = */
+				EventsManager.deleteEventOptions();
+				System.out.println("\t\t\tThe remaining events are:\n");
 				EventsManager.saveEventsInFile();
-				/*
-				 * saveChanges(); if (answer == 1) {
-				 * EventsManager.saveEventsInFile(); break; } else break;
-				 */
+				break;
 			}
 		}
 		case 4: {
@@ -84,6 +78,7 @@ public class DayPlannerStarter {
 				break;
 
 			} else {
+				EventsManager.checkingAndPrintingByType();
 				EventsManager.printingByDay();
 				break;
 			}
@@ -95,6 +90,7 @@ public class DayPlannerStarter {
 				break;
 
 			} else {
+				EventsManager.checkingAndPrintingByType();
 				EventsManager.printingByMonth();
 				break;
 			}
@@ -107,6 +103,7 @@ public class DayPlannerStarter {
 
 			} else {
 				WriteDataInFile.saveInFile(EventsManager.returnQueue());
+				System.out.println("\n\t\t\tThe events are successfully saved!");
 				break;
 			}
 		}
