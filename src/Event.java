@@ -70,30 +70,57 @@ public abstract class Event {
 
 	public void setEndDate() {
 		System.out.println("\n\t\t\tSetting the end date:");
-		String[] str;
-		boolean flag = false;
-		while (!flag) {
-			System.out.print("\t\tEnter date in format DD/MM/YEAR :");
-			this.date = scan.nextLine();
-			flag = InputValidator.checkDate(this.date);
-			if (flag) {
-				str = this.date.split("/");
-				if (getStartYear() > Integer.parseInt(str[2]) || getStartMonth() + 1 > Integer.parseInt(str[1])
-						|| getStartDay() > Integer.parseInt(str[0])) {
-					System.out.println("\n\t\tInvalid input! The entered end date is before the start one. "
-							+ "Please, try again!");
-					flag = false;
-				} else {
-					sameDateFlag = true;
-					flag = true;
-				}
+		boolean choiceFlag = false;
+		int optionChoice = 0;
+		while (!choiceFlag) {
+			try {
+				do {
+					System.out.print(
+							"\t\tWhen does this event end:\n\t\t\t1.Today\n\t\t\t2.Another date\n\t\tPlease, enter your choice (1 or 2):");
+					optionChoice = Integer.parseInt(scan.nextLine());
+					if (optionChoice < 1 || optionChoice > 2) {
+						System.out.println("\n\t\tInvalid input! Please, try again!");
+						choiceFlag = false;
+					} else {
+						choiceFlag = true;
+					}
+				} while (optionChoice < 1 || optionChoice > 2);
+			} catch (NumberFormatException e) {
+				System.out.println("\n\t\tInvalid input! Please, try again!");
 			}
 		}
+		if (optionChoice == 1) {
+			sameDateFlag = true;
+			String[] str = this.date.split("/");
+			setEndDay(Integer.parseInt(str[0]));
+			setEndMonth(Integer.parseInt(str[1]));
+			setEndYear(Integer.parseInt(str[2]));
+		} else {
+			String[] str;
+			boolean flag = false;
+			while (!flag) {
+				System.out.print("\t\tEnter date in format DD/MM/YEAR :");
+				this.date = scan.nextLine();
+				flag = InputValidator.checkDate(this.date);
+				if (flag) {
+					str = this.date.split("/");
+					if (getStartYear() > Integer.parseInt(str[2]) || getStartMonth() + 1 > Integer.parseInt(str[1])
+							|| getStartDay() > Integer.parseInt(str[0])) {
+						System.out.println("\n\t\tInvalid input! The entered end date is before the start one. "
+								+ "Please, try again!");
+						flag = false;
+					} else {
+						sameDateFlag = true;
+						flag = true;
+					}
+				}
+			}
 
-		str = this.date.split("/");
-		setEndDay(Integer.parseInt(str[0]));
-		setEndMonth(Integer.parseInt(str[1]));
-		setEndYear(Integer.parseInt(str[2]));
+			str = this.date.split("/");
+			setEndDay(Integer.parseInt(str[0]));
+			setEndMonth(Integer.parseInt(str[1]));
+			setEndYear(Integer.parseInt(str[2]));
+		}
 	}
 
 	public void setStartHourAndMinutes() {

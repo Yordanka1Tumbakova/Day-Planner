@@ -63,6 +63,7 @@ public class DayPlannerStarter {
 				EventsManager.deleteEventOptions();
 				System.out.println("\t\t\tThe remaining events are:\n");
 				EventsManager.saveEventsInFile();
+				EventsManager.checkingAndPrintingByType();
 				break;
 			}
 		}
