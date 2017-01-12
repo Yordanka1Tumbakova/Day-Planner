@@ -300,15 +300,16 @@ public abstract class Event {
 
 	@Override
 	public String toString() {
-		String value = String.format("%8s | %14s | %10s | %5d | %10 | %6d | %9d | %40s%n", "Event", getMarker(),
-				getStartMonthName(), getStartDay(), getStartYear(), getStartHour(), getStartMinutes(),
-				getDescription());
+		String startDate = String.format("%d %s %d", getStartDay(), getStartMonthName(), getStartYear());
+		String endDate = String.format("%d %s %d", getEndDay(), getEndMonthName(), getEndYear());
+		String value = String.format(
+				"%8s | %14s | %17s | %17s | %40s%n"
+						+ "                    |          |                | %8d:%-8d | %8d:%-8d |%n"
+						+ "\t\t----|----------|----------------|-------------------|-------------------|-----------------------------------------%n",
+				"Event", getMarker(), startDate, endDate, getDescription(), getStartHour(), getStartMinutes(),
+				getEndHour(), getEndMinutes());
 		return value;
-	}
 
-	public void printEventInformation() {
-		System.out.println("The event is " + this.marker + " on date: " + getStartDay() + " " + getStartMonthName()
-				+ " at " + getStartHour() + "." + getStartMinutes() + " Description: " + getDescription());
 	}
 
 }

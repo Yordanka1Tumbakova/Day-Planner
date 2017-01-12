@@ -36,8 +36,7 @@ public class DayPlannerStarter {
 			break;
 		}
 		case 2: {
-			// int answer;
-			if (EventsManager.IsQueueEmpty()) {
+			if (EventsManager.isQueueEmpty()) {
 
 				System.out.print("\t\t\tThere are no existing events. Add or load some and try again!\n");
 				break;
@@ -52,8 +51,7 @@ public class DayPlannerStarter {
 			}
 		}
 		case 3: {
-			// answer;
-			if (EventsManager.IsQueueEmpty()) {
+			if (EventsManager.isQueueEmpty()) {
 
 				System.out.print("\t\t\tThere are no existing events. Add or load some and try again!\n");
 				break;
@@ -73,7 +71,7 @@ public class DayPlannerStarter {
 			break;
 		}
 		case 5: {
-			if (EventsManager.IsQueueEmpty()) {
+			if (EventsManager.isQueueEmpty()) {
 
 				System.out.print("\t\t\tThere are no existing events. Add or load some and try again!\n");
 				break;
@@ -85,7 +83,7 @@ public class DayPlannerStarter {
 			}
 		}
 		case 6: {
-			if (EventsManager.IsQueueEmpty()) {
+			if (EventsManager.isQueueEmpty()) {
 
 				System.out.print("\t\t\tThere are no existing events. Add or load some and try again!\n");
 				break;
@@ -97,13 +95,14 @@ public class DayPlannerStarter {
 			}
 		}
 		case 7: {
-			if (EventsManager.IsQueueEmpty()) {
+			if (EventsManager.isQueueEmpty()) {
 
 				System.out.print("\t\t\tThere are no existing events. Add or load some and try again!\n");
 				break;
 
 			} else {
-				WriteDataInFile.saveInFile(EventsManager.returnQueue());
+				EventsManager.saveEventsInFile();
+				// WriteDataInFile.saveInFile(EventsManager.returnQueue());
 				System.out.println("\n\t\t\tThe events are successfully saved!");
 				break;
 			}

@@ -30,12 +30,4 @@ public class Meeting extends Event {
 		return value;
 	}
 
-	@Override
-	public void printEventInformation() {
-
-		System.out.printf("%8s | %14s | %10s | %5d | %7d | %6d | %9d | %40s%n", "Meeting", getMarker(),
-				getStartMonthName(), getStartDay(), getStartYear(), getStartHour(), getStartMinutes(),
-				getDescription());
-
-	}
 }

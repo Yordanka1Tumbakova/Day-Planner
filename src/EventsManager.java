@@ -290,19 +290,16 @@ public class EventsManager {
 				"\t\t____|__________|________________|___________________|___________________|__________________________________________%n");
 	}
 
-	public static Queue<Event> returnQueue() {
-		return events;
-	}
-
 	public static void deleteEventOptions() {
 		int optionChoice;
 		boolean flag = false;
 
 		while (!flag) {
 			do {
-				System.out.print("\t\t\tDelete events by:\n\t\t1.Entering month and year\n\t\t"
-						+ "2.Entered day, month and year\n\t\t3.Entering the event's ID\n\t\t4.Go back to the main menu"
-						+ "\n\t\tPlease, enter the number of the option (1-4) you want to use:");
+				System.out
+						.print("\t\t\tDelete events by:\n\t\t1.Entering month and year(deletes all the events for this month)\n\t\t"
+								+ "2.Entered day, month and year\n\t\t3.Entering the event's ID\n\t\t4.Go back to the main menu"
+								+ "\n\t\tPlease, enter the number of the option (1-4) you want to use:");
 
 				optionChoice = Integer.parseInt(scan.nextLine());
 				if (optionChoice < 1 || optionChoice > 4)
@@ -650,14 +647,6 @@ public class EventsManager {
 	public static int queueSize() {
 
 		return events.size();
-	}
-
-	public static boolean IsQueueEmpty() {
-		if (events.isEmpty()) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 
 	public static int checkingEventByHour(int day, String monthName, int year) {
