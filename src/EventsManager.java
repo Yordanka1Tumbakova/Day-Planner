@@ -205,7 +205,7 @@ public class EventsManager {
 		while (!flagMonthYear) {
 			System.out.print("\t\tEnter the date in format MM/YEAR :");
 			date = scan.nextLine();
-			if (DateValidator.IsMonthAndYearValid(date))
+			if (DateAndTimeValidator.IsMonthAndYearValid(date))
 				flagMonthYear = true;
 		}
 		String str[] = date.split("/");
@@ -362,7 +362,7 @@ public class EventsManager {
 				System.out.print("\t\tEnter date in format MM/YEAR :");
 
 				date = scan.nextLine();
-				if (DateValidator.IsMonthAndYearValid(date))
+				if (DateAndTimeValidator.IsMonthAndYearValid(date))
 					flagMonthYear = true;
 				else {
 					System.out.println("Invalid input! Please, try again!");
@@ -415,7 +415,7 @@ public class EventsManager {
 			while (!flagMonthYear) {
 				System.out.print("\t\tEnter date in format DD/MM/YEAR :");
 				date = scan.nextLine();
-				if (DateValidator.IsValid(date))
+				if (DateAndTimeValidator.IsValid(date))
 					flagMonthYear = true;
 				else {
 					System.out.println("Invalid input! Please, try again!");
@@ -498,7 +498,7 @@ public class EventsManager {
 			while (!flagMonthYear) {
 				System.out.print("\t\tEnter date in format DD/MM/YEAR :");
 				date = scan.nextLine();
-				if (DateValidator.IsValid(date))
+				if (DateAndTimeValidator.IsValid(date))
 					flagMonthYear = true;
 				else {
 					System.out.println("\t\tInvalid input! Please, try again!");
@@ -578,22 +578,6 @@ public class EventsManager {
 
 	}
 
-	/*
-	 * public static void saveInFileChoice(Event e) { char answer; boolean flag
-	 * = false; while (!flag) { do {
-	 * System.out.print("\n\t\tDo you want to save this event? " +
-	 * "Enter \'y\' for YES or \'n\' for NO:"); answer =
-	 * scan.nextLine().charAt(0); if (answer != 'y' && answer != 'n' && answer
-	 * != 'Y' && answer != 'N') {
-	 * System.out.println("\t\tInvalid input! Please, enter your choice again!"
-	 * ); flag = false; } else { if (answer == 'Y' || answer == 'y') {
-	 * WriteDataInFile.appendEventInFile(e); flag = true; } else if (answer ==
-	 * 'N' || answer == 'n') { flag = true; } } } while (answer != 'y' && answer
-	 * != 'n' && answer != 'Y' && answer != 'N'); }
-	 * 
-	 * }
-	 */
-
 	public static void saveEventInFile(Event e) {
 		WriteDataInFile.appendEventInFile(e);
 	}
@@ -635,7 +619,7 @@ public class EventsManager {
 			System.out.print("\t\tEnter date in format DD/MM/YEAR :");
 
 			date = scan.nextLine();
-			if (DateValidator.IsValid(date)) {
+			if (DateAndTimeValidator.IsValid(date)) {
 				String[] str = date.split("/");
 
 				if (InputValidator.monthValidator(Integer.parseInt(str[1]))) {
@@ -691,7 +675,7 @@ public class EventsManager {
 						.print("\n\t\tSince there is more than one event in this particular day,\n\t\tplease enter the"
 								+ " time of the event you want to change in format HH:MM :");
 				hourAndMinutes = scan.nextLine();
-				if (HourAndMinutesValidator.IsValid(hourAndMinutes)) {
+				if (DateAndTimeValidator.IsTimeValid(hourAndMinutes)) {
 					String[] str = hourAndMinutes.split(":");
 					hour = Integer.parseInt(str[0]);
 					minutes = Integer.parseInt(str[1]);

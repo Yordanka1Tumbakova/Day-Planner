@@ -307,7 +307,7 @@ public class InputValidator {
 	}
 
 	public static boolean checkHourAndMinutes(String time) {
-		if (HourAndMinutesValidator.IsValid(time)) {
+		if (DateAndTimeValidator.IsTimeValid(time)) {
 
 			return true;
 		} else {
@@ -318,7 +318,7 @@ public class InputValidator {
 
 	public static boolean checkDate(String date) {
 
-		if (DateValidator.IsValid(date)) {
+		if (DateAndTimeValidator.IsValid(date)) {
 			String[] str = date.split("/");
 
 			if (InputValidator.monthValidator(Integer.parseInt(str[1]))) {
