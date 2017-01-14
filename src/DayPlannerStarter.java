@@ -94,21 +94,8 @@ public class DayPlannerStarter {
 				break;
 			}
 		}
+
 		case 7: {
-			if (EventsManager.isQueueEmpty()) {
-
-				System.out.print("\t\t\tThere are no existing events. Add or load some and try again!\n");
-				break;
-
-			} else {
-				EventsManager.saveEventsInFile();
-				// WriteDataInFile.saveInFile(EventsManager.returnQueue());
-				System.out.println("\n\t\t\tThe events are successfully saved!");
-				break;
-			}
-		}
-
-		case 8: {
 			System.out.println("\t\t\tExit succesful! Thank you for using this app!");
 			System.exit(0);
 			break;
@@ -133,13 +120,13 @@ public class DayPlannerStarter {
 					System.out.print("\n\t\t\t\t\tChoose from these options:\n"
 							+ "\n\t\t\t\t1.Adding new event\n\t\t\t\t2.Editing existing event\n\t\t\t\t3.Deleting event\n\t\t\t\t4.Displaying"
 							+ " all of the existing events (including the previously saved ones)\n\t\t\t\t5.Displaying the events for a certain day\n\t\t\t\t6.Displaying the events for a certain month"
-							+ "\n\t\t\t\t7.Saving the events\n\t\t\t\t8.Exiting the app\n\n\t\tPlease, enter the number of the option (1-8) you want to use:");
+							+ "\n\t\t\t\t7.Exiting the app\n\n\t\tPlease, enter the number of the option (1-7) you want to use:");
 
 					optionChoice = Integer.parseInt(scan.nextLine());
-					if (optionChoice < 1 || optionChoice > 8) {
+					if (optionChoice < 1 || optionChoice > 7) {
 						System.out.println("\t\tInvalid input! Please, enter your choice again!");
 					}
-				} while (optionChoice < 1 || optionChoice > 8);
+				} while (optionChoice < 1 || optionChoice > 7);
 				choosingOption(optionChoice);
 				flag = false;
 			}

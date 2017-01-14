@@ -138,7 +138,7 @@ public abstract class Event {
 	}
 
 	public void setEndHourAndMinutes() {
-		System.out.println("\n\t\t\tSetting the end time:");
+		System.out.println("\n\t\t\tSetting the end time:\n\t\t (the minutes must have at least 2 digits)");
 		String[] str;
 		boolean flag = false;
 		while (!flag) {
