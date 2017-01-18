@@ -230,7 +230,7 @@ public abstract class Event {
 	}
 
 	public void setDescription() {
-		System.out.print("\t\tEnter event description:");
+		System.out.print("\t\tEnter short event description:");
 		this.description = scan.nextLine();
 		if (this.description.isEmpty()) {
 			this.description = " ";
